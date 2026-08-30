@@ -1,0 +1,1554 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Ossoma House | Guest House, Restaurante &amp; Lounge Bar no Talatona
+    </title>
+    <meta
+      name="description"
+      content="Ossoma House — Guest House, Restaurante e Lounge Bar no Talatona, Luanda. Quartos com piscina privativa, cozinha de autor e um lounge aberto 24 horas."
+    />
+    <meta
+      name="keywords"
+      content="Ossoma House, guest house Luanda, guest house Talatona, hospedagem Talatona, restaurante Talatona, lounge bar Luanda, hotel Talatona, alojamento Luanda, spa Luanda"
+    />
+    <meta name="author" content="Manuel Jaime & BDA" />
+    <link rel="author" href="https://github.com/manueljaime007" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ossomahouse.ao/" />
+    <meta name="theme-color" content="#14532D" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ossoma House" />
+    <meta
+      property="og:title"
+      content="Ossoma House | Guest House, Restaurante & Lounge Bar no Talatona"
+    />
+    <meta
+      property="og:description"
+      content="Guest House, Restaurante e Lounge Bar no Talatona, Luanda. Quartos com piscina privativa, cozinha de autor e um lounge aberto 24 horas."
+    />
+    <meta property="og:image" content="logo.png" />
+    <meta property="og:url" content="https://ossomahouse.ao/" />
+    <meta property="og:locale" content="pt_PT" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Ossoma House | Guest House, Restaurante & Lounge Bar no Talatona"
+    />
+    <meta
+      name="twitter:description"
+      content="Guest House, Restaurante e Lounge Bar no Talatona, Luanda. Quartos com piscina privativa, cozinha de autor e um lounge aberto 24 horas."
+    />
+    <meta name="twitter:image" content="logo.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: "#14532D",
+              forestlight: "#1C6B3A",
+              forestdeep: "#0D3A1F",
+              gold: "#FFD666",
+              goldsoft: "#F0DCA0",
+              golddeep: "#C99A2E",
+              cream: "#D6C0A3",
+              creamlight: "#FBF6EE",
+              ink: "#1E1E1E",
+            },
+            fontFamily: {
+              display: ["Fraunces", "serif"],
+              body: ["Work Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Work Sans", sans-serif;
+        color: #1e1e1e;
+      }
+      .font-display {
+        font-family: "Fraunces", serif;
+      }
+
+      /* Hero slider */
+      .slide {
+        opacity: 0;
+        transition: opacity 1.6s ease-in-out;
+      }
+      .slide.active {
+        opacity: 1;
+      }
+
+      /* Arch signature frame — echoes the guest house's colonial arches */
+      .arch-frame {
+        border-radius: 50% 50% 0 0 / 22% 22% 0 0;
+        overflow: hidden;
+      }
+      @media (max-width: 640px) {
+        .arch-frame {
+          border-radius: 50% 50% 0 0 / 16% 16% 0 0;
+        }
+      }
+
+      /* Thin gold crown-arc divider */
+      .crown-divider {
+        height: 40px;
+      }
+
+      /* Mobile menu */
+      #mobileMenu {
+        transition:
+          max-height 0.5s ease,
+          opacity 0.35s ease;
+      }
+
+      /* Room / menu list rows */
+      .item-row.is-active {
+        background-color: rgba(255, 214, 102, 0.12);
+        border-color: #ffd666;
+      }
+      .item-row.is-active .item-row-title {
+        color: #ffd666;
+      }
+
+      /* Modal */
+      #detailModal {
+        transition: opacity 0.35s ease;
+      }
+      #detailModal .modal-panel {
+        transition:
+          transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.35s ease;
+      }
+
+      ::selection {
+        background: #ffd666;
+        color: #14532d;
+      }
+
+      /* Fade-in on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Scrollbar accent for modal lists */
+      .scroll-thin::-webkit-scrollbar {
+        width: 6px;
+      }
+      .scroll-thin::-webkit-scrollbar-thumb {
+        background: #d6c0a3;
+        border-radius: 999px;
+      }
+
+      /* Bento gallery — colunas em auto-scroll vertical, direções contrárias */
+      .marquee-col {
+        position: relative;
+        height: 460px;
+        overflow: hidden;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 8%,
+          black 92%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          black 8%,
+          black 92%,
+          transparent
+        );
+      }
+      @media (min-width: 640px) {
+        .marquee-col {
+          height: 560px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .marquee-col {
+          height: 640px;
+        }
+      }
+
+      .marquee-track {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        animation: marquee-up linear infinite;
+        animation-duration: var(--duration, 26s);
+      }
+      .marquee-track.reverse {
+        animation-name: marquee-down;
+      }
+      .marquee-col:hover .marquee-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes marquee-up {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-50%);
+        }
+      }
+      @keyframes marquee-down {
+        from {
+          transform: translateY(-50%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-ink antialiased">
+    <!-- ============ HEADER ============ -->
+    <header
+      id="siteHeader"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent"
+    >
+      <div
+        class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20 lg:h-24"
+      >
+        <a href="#inicio" class="flex items-center gap-2 shrink-0">
+          <img
+            src="logo.png"
+            alt="Ossoma House"
+            id="headerLogo"
+            class="h-12 lg:h-16 w-auto transition-all duration-500"
+          />
+        </a>
+
+        <nav
+          class="hidden lg:flex items-center gap-10 font-body text-sm tracking-wide uppercase"
+          id="desktopNav"
+        >
+          <a
+            href="#inicio"
+            class="nav-link relative pb-1 hover:text-gold transition-colors"
+            >Início</a
+          >
+          <a
+            href="#quartos"
+            class="nav-link relative pb-1 hover:text-gold transition-colors"
+            >Quartos</a
+          >
+          <a
+            href="#restaurante"
+            class="nav-link relative pb-1 hover:text-gold transition-colors"
+            >Restaurante</a
+          >
+          <a
+            href="#lounge"
+            class="nav-link relative pb-1 hover:text-gold transition-colors"
+            >Lounge</a
+          >
+          <a
+            href="#galeria"
+            class="nav-link relative pb-1 hover:text-gold transition-colors"
+            >Galeria</a
+          >
+          <a
+            href="#contactos"
+            class="nav-link relative pb-1 hover:text-gold transition-colors"
+            >Contactos</a
+          >
+        </nav>
+
+        <a
+          href="#contactos"
+          class="hidden lg:inline-flex items-center gap-2 bg-forest hover:bg-forestlight text-white text-sm uppercase tracking-wide font-medium px-6 py-3 rounded-full transition-colors"
+        >
+          Reservar Agora
+        </a>
+
+        <button
+          id="menuBtn"
+          class="lg:hidden w-11 h-11 flex items-center justify-center rounded-full border border-current"
+          aria-label="Abrir menu"
+        >
+          <i class="bi bi-list text-2xl" id="menuIcon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile nav -->
+      <div
+        id="mobileMenu"
+        class="lg:hidden max-h-0 opacity-0 overflow-hidden bg-forest"
+      >
+        <nav
+          class="flex flex-col px-6 py-6 gap-5 font-body text-base uppercase tracking-wide text-creamlight"
+        >
+          <a href="#inicio" class="mobile-link border-b border-white/10 pb-4"
+            >Início</a
+          >
+          <a href="#quartos" class="mobile-link border-b border-white/10 pb-4"
+            >Quartos</a
+          >
+          <a
+            href="#restaurante"
+            class="mobile-link border-b border-white/10 pb-4"
+            >Restaurante</a
+          >
+          <a href="#lounge" class="mobile-link border-b border-white/10 pb-4"
+            >Lounge</a
+          >
+          <a href="#galeria" class="mobile-link border-b border-white/10 pb-4"
+            >Galeria</a
+          >
+          <a href="#contactos" class="mobile-link border-b border-white/10 pb-4"
+            >Contactos</a
+          >
+          <a
+            href="#contactos"
+            class="mobile-link mt-2 inline-flex justify-center bg-gold text-forestdeep font-semibold px-6 py-3 rounded-full"
+            >Reservar Agora</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section
+      id="inicio"
+      class="relative h-screen min-h-[640px] w-full overflow-hidden"
+    >
+      <div id="sliderWrap" class="absolute inset-0">
+        <div
+          class="slide active absolute inset-0 bg-cover bg-center"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1600&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="slide absolute inset-0 bg-cover bg-center"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1600&q=80&quot;);
+          "
+        ></div>
+        <div
+          class="slide absolute inset-0 bg-cover bg-center"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1600&q=80&quot;);
+          "
+        ></div>
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-forestdeep/70 via-forestdeep/50 to-forestdeep/85"
+      ></div>
+
+      <div
+        class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
+      >
+        <span
+          class="reveal in-view font-body uppercase tracking-[0.35em] text-gold text-xs sm:text-sm mb-6"
+          >Talatona · Luanda</span
+        >
+        <h1
+          class="reveal in-view font-display italic text-white text-4xl sm:text-6xl lg:text-7xl leading-[1.1] max-w-4xl"
+        >
+          O seu refúgio de conforto no Talatona.
+        </h1>
+        <p
+          class="reveal in-view font-body text-creamlight/90 text-base sm:text-lg mt-6 max-w-xl leading-relaxed"
+          style="transition-delay: 0.15s"
+        >
+          Guest House, Restaurante, Lounge Bar e Spa num só lugar. Uma
+          experiência de hospitalidade única em Angola.
+        </p>
+        <div
+          class="reveal in-view flex flex-col sm:flex-row gap-4 mt-10"
+          style="transition-delay: 0.3s"
+        >
+          <a
+            href="#quartos"
+            class="bg-forest hover:bg-forestlight text-white font-body text-sm uppercase tracking-wide font-medium px-8 py-4 rounded-full transition-colors"
+          >
+            Reservar Quarto
+          </a>
+          <a
+            href="#lounge"
+            class="border border-gold text-gold hover:bg-gold hover:text-forestdeep font-body text-sm uppercase tracking-wide font-medium px-8 py-4 rounded-full transition-colors"
+          >
+            Explorar Serviços
+          </a>
+        </div>
+      </div>
+
+      <!-- dots -->
+      <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-3"
+        id="sliderDots"
+      >
+        <button
+          class="dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all"
+          data-index="0"
+        ></button>
+        <button
+          class="dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all"
+          data-index="1"
+        ></button>
+        <button
+          class="dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all"
+          data-index="2"
+        ></button>
+      </div>
+
+      <a
+        href="#quartos"
+        class="absolute bottom-8 right-8 z-10 hidden sm:flex items-center justify-center w-11 h-11 rounded-full border border-white/50 text-white animate-bounce"
+      >
+        <i class="bi bi-arrow-down"></i>
+      </a>
+    </section>
+
+    <!-- Crown arc divider -->
+    <div class="crown-divider bg-creamlight relative overflow-hidden">
+      <svg
+        viewBox="0 0 1200 40"
+        preserveAspectRatio="none"
+        class="absolute inset-0 w-full h-full"
+      >
+        <path d="M0,0 Q600,50 1200,0 L1200,40 L0,40 Z" fill="#FBF6EE"></path>
+        <path
+          d="M0,4 Q600,50 1200,4"
+          fill="none"
+          stroke="#FFD666"
+          stroke-width="1.5"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- ============ QUARTOS ============ -->
+    <section id="quartos" class="bg-creamlight py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="reveal grid lg:grid-cols-2 gap-14 items-end mb-16">
+          <div>
+            <span
+              class="font-body uppercase tracking-[0.3em] text-golddeep text-xs"
+              >Hospedagem</span
+            >
+            <h2
+              class="font-display text-forest text-3xl sm:text-5xl mt-4 leading-tight"
+            >
+              O seu conforto,<br class="hidden sm:block" />
+              nossa prioridade.
+            </h2>
+          </div>
+          <p class="font-body text-ink/70 leading-relaxed">
+            Cada quarto da Ossoma House foi pensado para que a sua estadia no
+            Talatona seja tão tranquila quanto possível. Camas confortáveis,
+            acabamentos em madeira clara e acesso a uma piscina privativa
+            transformam qualquer estadia numa pausa genuína, seja em viagem de
+            negócios ou em lazer.
+          </p>
+        </div>
+
+        <!-- Incluído na hospedagem -->
+        <div
+          class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-24"
+        >
+          <div class="flex flex-col items-center text-center gap-3">
+            <div
+              class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl"
+            >
+              <i class="bi bi-cup-hot"></i>
+            </div>
+            <p class="font-body text-sm text-ink/80">Café da manhã completo</p>
+          </div>
+          <div class="flex flex-col items-center text-center gap-3">
+            <div
+              class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl"
+            >
+              <i class="bi bi-stars"></i>
+            </div>
+            <p class="font-body text-sm text-ink/80">Limpeza diária</p>
+          </div>
+          <div class="flex flex-col items-center text-center gap-3">
+            <div
+              class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl"
+            >
+              <i class="bi bi-water"></i>
+            </div>
+            <p class="font-body text-sm text-ink/80">Piscina privativa</p>
+          </div>
+          <div class="flex flex-col items-center text-center gap-3">
+            <div
+              class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl"
+            >
+              <i class="bi bi-p-circle"></i>
+            </div>
+            <p class="font-body text-sm text-ink/80">Estacionamento</p>
+          </div>
+          <div class="flex flex-col items-center text-center gap-3">
+            <div
+              class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl"
+            >
+              <i class="bi bi-wifi"></i>
+            </div>
+            <p class="font-body text-sm text-ink/80">
+              Wi-Fi de alta velocidade
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center gap-3">
+            <div
+              class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl"
+            >
+              <i class="bi bi-droplet"></i>
+            </div>
+            <p class="font-body text-sm text-ink/80">Roupa de cama e banho</p>
+          </div>
+        </div>
+
+        <!-- Lista + Detalhe (desktop) -->
+        <div
+          class="reveal grid lg:grid-cols-5 gap-10 lg:gap-16"
+          id="roomsBlock"
+        >
+          <div class="lg:col-span-2 flex flex-col gap-3" id="roomsList"></div>
+          <div class="lg:col-span-3 hidden lg:block" id="roomsDetail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESTAURANTE ============ -->
+    <section id="restaurante" class="bg-white py-24 sm:py-32 relative">
+      <div class="absolute inset-0 arch-frame opacity-0"></div>
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="reveal grid lg:grid-cols-2 gap-14 items-end mb-16">
+          <div>
+            <span
+              class="font-body uppercase tracking-[0.3em] text-golddeep text-xs"
+              >Gastronomia</span
+            >
+            <h2
+              class="font-display text-forest text-3xl sm:text-5xl mt-4 leading-tight"
+            >
+              Cozinha de autor e<br class="hidden sm:block" />
+              momentos doces.
+            </h2>
+          </div>
+          <p class="font-body text-ink/70 leading-relaxed">
+            O nosso restaurante funciona das 12h às 23h. Com um menu variado e
+            pratos do dia preparados na hora, cada refeição na Ossoma House é
+            feita para ser partilhada, à mesa ou à beira da piscina.
+          </p>
+        </div>
+
+        <div class="reveal grid lg:grid-cols-2 gap-14 items-center mb-20">
+          <div class="arch-frame">
+            <img
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80"
+              alt="Prato do restaurante Ossoma House"
+              class="w-full h-[420px] object-cover"
+            />
+          </div>
+          <div>
+            <h3 class="font-display italic text-forest text-2xl mb-4">
+              Menu do Dia
+            </h3>
+            <p class="font-body text-ink/70 leading-relaxed mb-6">
+              Escolha o dia da semana para ver o prato principal, a sobremesa e
+              a bebida incluída na sua refeição.
+            </p>
+            <div class="flex flex-col gap-3" id="menuList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crown arc divider (inverted, over cream) -->
+    <div class="crown-divider bg-forest relative overflow-hidden">
+      <svg
+        viewBox="0 0 1200 40"
+        preserveAspectRatio="none"
+        class="absolute inset-0 w-full h-full"
+      >
+        <path d="M0,40 Q600,-10 1200,40 L1200,40 L0,40 Z" fill="#14532D"></path>
+        <path
+          d="M0,36 Q600,-10 1200,36"
+          fill="none"
+          stroke="#FFD666"
+          stroke-width="1.5"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- ============ LOUNGE & SPA ============ -->
+    <section
+      id="lounge"
+      class="bg-forest relative overflow-hidden py-24 sm:py-32"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=1600&q=80"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-15"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-forest via-forest/95 to-forestdeep"
+      ></div>
+
+      <div
+        class="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-16 items-center"
+      >
+        <div class="reveal arch-frame order-2 lg:order-1">
+          <img
+            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1000&q=80"
+            alt="Lounge bar junto à piscina"
+            class="w-full h-[480px] object-cover"
+          />
+        </div>
+
+        <div class="reveal order-1 lg:order-2">
+          <span class="font-body uppercase tracking-[0.3em] text-gold text-xs"
+            >Lounge Bar &amp; Spa</span
+          >
+          <h2
+            class="font-display text-white text-3xl sm:text-5xl mt-4 mb-6 leading-tight"
+          >
+            Relaxe à beira<br />
+            da piscina.
+          </h2>
+          <p class="font-body text-creamlight/80 leading-relaxed mb-10">
+            O nosso Lounge Bar está aberto 24 horas para receber os nossos
+            hóspedes, com cocktails preparados na hora e um ambiente pensado
+            para desacelerar.
+          </p>
+
+          <ul class="flex flex-col gap-5">
+            <li class="flex items-center gap-4">
+              <i class="bi bi-cup-straw text-gold text-lg"></i>
+              <span class="font-body text-white">Cocktails premium</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="bi bi-basket text-gold text-lg"></i>
+              <span class="font-body text-white">Snacks a qualquer hora</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="bi bi-tree text-gold text-lg"></i>
+              <span class="font-body text-white">Ambiente rústico</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="bi bi-moon-stars text-gold text-lg"></i>
+              <span class="font-body text-white">Zona de relaxamento</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="bi bi-flower1 text-gold text-lg"></i>
+              <span class="font-body text-white">Spa e bem-estar</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERIA ============ -->
+    <section id="galeria" class="bg-white py-24 sm:py-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto mb-16">
+          <span
+            class="font-body uppercase tracking-[0.3em] text-golddeep text-xs"
+            >Galeria</span
+          >
+          <h2 class="font-display text-forest text-3xl sm:text-5xl mt-4">
+            Um vislumbre da Ossoma House.
+          </h2>
+          <p class="font-body text-ink/70 leading-relaxed mt-6">
+            Piscina, quartos, restaurante e lounge — cada canto da propriedade
+            pensado para receber bem. As imagens abaixo são de referência e
+            serão substituídas por fotografias reais assim que estiverem
+            disponíveis.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal max-w-7xl mx-auto px-5 sm:px-8">
+        <div
+          class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
+          id="bentoGallery"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFÍCIOS ============ -->
+    <section class="bg-creamlight py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto mb-16">
+          <span
+            class="font-body uppercase tracking-[0.3em] text-golddeep text-xs"
+            >Porquê nós</span
+          >
+          <h2 class="font-display text-forest text-3xl sm:text-5xl mt-4">
+            Porquê escolher a Ossoma House?
+          </h2>
+        </div>
+
+        <div class="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-8 border border-cream/60">
+            <i class="bi bi-geo-alt text-gold text-2xl"></i>
+            <h3 class="font-display text-forest text-lg mt-4 mb-2">
+              Localização Privilegiada
+            </h3>
+            <p class="font-body text-sm text-ink/60 leading-relaxed">
+              No coração de Talatona, perto do essencial de Luanda.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 border border-cream/60">
+            <i class="bi bi-clock-history text-gold text-2xl"></i>
+            <h3 class="font-display text-forest text-lg mt-4 mb-2">
+              Hospitalidade 24h
+            </h3>
+            <p class="font-body text-sm text-ink/60 leading-relaxed">
+              A equipa Ossoma House está disponível a qualquer hora do dia.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 border border-cream/60">
+            <i class="bi bi-collection text-gold text-2xl"></i>
+            <h3 class="font-display text-forest text-lg mt-4 mb-2">
+              Experiência Completa
+            </h3>
+            <p class="font-body text-sm text-ink/60 leading-relaxed">
+              Alojamento, gastronomia e lazer, tudo no mesmo espaço.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 border border-cream/60">
+            <i class="bi bi-gem text-gold text-2xl"></i>
+            <h3 class="font-display text-forest text-lg mt-4 mb-2">
+              Conforto Premium
+            </h3>
+            <p class="font-body text-sm text-ink/60 leading-relaxed">
+              Camas confortáveis e piscina privada em cada estadia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTOS ============ -->
+    <section id="contactos" class="bg-white py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto mb-16">
+          <span
+            class="font-body uppercase tracking-[0.3em] text-golddeep text-xs"
+            >Reservas</span
+          >
+          <h2 class="font-display text-forest text-3xl sm:text-5xl mt-4">
+            Pronto para reservar a sua estadia?
+          </h2>
+        </div>
+
+        <div class="reveal grid lg:grid-cols-5 gap-14">
+          <!-- Info -->
+          <div class="lg:col-span-2 flex flex-col gap-8">
+            <div class="flex gap-4">
+              <div
+                class="w-12 h-12 shrink-0 rounded-full bg-forest/10 flex items-center justify-center text-forest text-lg"
+              >
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-forest text-lg mb-1">Morada</h4>
+                <p class="font-body text-ink/70 text-sm leading-relaxed">
+                  Rua Patrícia Rossana nº73, Talatona, Luanda — Angola
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div
+                class="w-12 h-12 shrink-0 rounded-full bg-forest/10 flex items-center justify-center text-forest text-lg"
+              >
+                <i class="bi bi-clock"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-forest text-lg mb-1">Horário</h4>
+                <p class="font-body text-ink/70 text-sm leading-relaxed">
+                  Guest House &amp; Lounge — 24 horas<br />Restaurante — 12h às
+                  23h
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div
+                class="w-12 h-12 shrink-0 rounded-full bg-forest/10 flex items-center justify-center text-forest text-lg"
+              >
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <div>
+                <h4 class="font-display text-forest text-lg mb-1">WhatsApp</h4>
+                <p class="font-body text-ink/70 text-sm leading-relaxed">
+                  +244 944 195 613
+                </p>
+              </div>
+            </div>
+
+            <div class="rounded-2xl overflow-hidden mt-4">
+              <iframe
+                src="https://www.google.com/maps?q=Rua+Patr%C3%ADcia+Rossana+73+Talatona+Luanda+Angola&output=embed"
+                class="w-full h-[280px] border-0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localização Ossoma House"
+              ></iframe>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="lg:col-span-3 bg-creamlight rounded-3xl p-8 sm:p-10">
+            <form id="reservaForm" class="flex flex-col gap-5">
+              <div>
+                <label class="font-body text-sm text-ink/70 mb-2 block"
+                  >Nome Completo</label
+                >
+                <input
+                  required
+                  type="text"
+                  id="nome"
+                  class="w-full bg-white border border-cream rounded-xl px-4 py-3 font-body text-sm focus:outline-none focus:ring-2 focus:ring-gold"
+                  placeholder="O seu nome"
+                />
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="font-body text-sm text-ink/70 mb-2 block"
+                    >Tipo de Reserva</label
+                  >
+                  <select
+                    id="tipoReserva"
+                    class="w-full bg-white border border-cream rounded-xl px-4 py-3 font-body text-sm focus:outline-none focus:ring-2 focus:ring-gold"
+                  >
+                    <option value="Hospedagem">Hospedagem</option>
+                    <option value="Restaurante">Restaurante</option>
+                    <option value="Lounge Bar">Lounge Bar</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="font-body text-sm text-ink/70 mb-2 block"
+                    >Data / Hora</label
+                  >
+                  <input
+                    type="text"
+                    id="dataHora"
+                    class="w-full bg-white border border-cream rounded-xl px-4 py-3 font-body text-sm focus:outline-none focus:ring-2 focus:ring-gold"
+                    placeholder="Ex: 12 de Setembro, 14h"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="font-body text-sm text-ink/70 mb-2 block"
+                  >Número de Pessoas / Quartos</label
+                >
+                <input
+                  type="text"
+                  id="pessoas"
+                  class="w-full bg-white border border-cream rounded-xl px-4 py-3 font-body text-sm focus:outline-none focus:ring-2 focus:ring-gold"
+                  placeholder="Ex: 2 pessoas, 1 quarto"
+                />
+              </div>
+
+              <div>
+                <label class="font-body text-sm text-ink/70 mb-2 block"
+                  >Mensagem</label
+                >
+                <textarea
+                  id="mensagem"
+                  rows="4"
+                  class="w-full bg-white border border-cream rounded-xl px-4 py-3 font-body text-sm focus:outline-none focus:ring-2 focus:ring-gold"
+                  placeholder="Detalhes adicionais sobre a sua reserva"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="mt-2 inline-flex items-center justify-center gap-2 bg-forest hover:bg-forestlight text-white font-body text-sm uppercase tracking-wide font-medium px-8 py-4 rounded-full transition-colors"
+              >
+                <i class="bi bi-whatsapp"></i> Enviar via WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="relative bg-forestdeep pt-24 pb-10 overflow-hidden">
+      <img
+        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1600&q=80"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-20"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-forestdeep/90 via-forestdeep/95 to-forestdeep"
+      ></div>
+
+      <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+        <div
+          class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-14 border-b border-white/10"
+        >
+          <div>
+            <img
+              src="logo.png"
+              alt="Ossoma House"
+              class="h-14 w-auto brightness-0 invert opacity-90 mb-4"
+            />
+            <p class="font-display italic text-cream text-lg mb-5">
+              Guest House | Lounge Bar
+            </p>
+            <p
+              class="font-body text-sm text-creamlight/60 leading-relaxed mb-6"
+            >
+              O seu refúgio de conforto no Talatona — hospedagem, gastronomia e
+              lazer num só lugar.
+            </p>
+            <div class="flex gap-3">
+              <a
+                href="https://www.instagram.com/ossoma_house"
+                aria-label="Instagram"
+                class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-forestdeep hover:border-gold transition-colors"
+              >
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a
+                href="https://web.facebook.com/p/Ossoma-House-61587768522413"
+                aria-label="Facebook"
+                class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-forestdeep hover:border-gold transition-colors"
+              >
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a
+                href="https://wa.me/244944195613"
+                target="_blank"
+                aria-label="WhatsApp"
+                class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-forestdeep hover:border-gold transition-colors"
+              >
+                <i class="bi bi-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-display text-gold text-base mb-5">Navegação</h4>
+            <nav
+              class="flex flex-col gap-3 font-body text-sm text-creamlight/70"
+            >
+              <a href="#inicio" class="hover:text-gold transition-colors w-fit"
+                >Início</a
+              >
+              <a href="#quartos" class="hover:text-gold transition-colors w-fit"
+                >Quartos</a
+              >
+              <a
+                href="#restaurante"
+                class="hover:text-gold transition-colors w-fit"
+                >Restaurante</a
+              >
+              <a href="#lounge" class="hover:text-gold transition-colors w-fit"
+                >Lounge</a
+              >
+              <a href="#galeria" class="hover:text-gold transition-colors w-fit"
+                >Galeria</a
+              >
+              <a
+                href="#contactos"
+                class="hover:text-gold transition-colors w-fit"
+                >Contactos</a
+              >
+            </nav>
+          </div>
+
+          <div>
+            <h4 class="font-display text-gold text-base mb-5">Contactos</h4>
+            <ul
+              class="flex flex-col gap-4 font-body text-sm text-creamlight/70"
+            >
+              <li class="flex items-start gap-3">
+                <i class="bi bi-geo-alt mt-0.5"></i>
+                <span
+                  >Rua Patrícia Rossana nº73, Talatona, Luanda — Angola</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="bi bi-clock mt-0.5"></i>
+                <span
+                  >Guest House &amp; Lounge — 24 horas<br />Restaurante — 12h às
+                  23h</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="bi bi-whatsapp mt-0.5"></i>
+                <a
+                  href="https://wa.me/244944195613"
+                  target="_blank"
+                  class="hover:text-gold transition-colors"
+                  >+244 944 195 613</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-display text-gold text-base mb-5">Reserve já</h4>
+            <p
+              class="font-body text-sm text-creamlight/60 leading-relaxed mb-6"
+            >
+              Fale connosco e garanta o seu quarto, mesa ou lugar no Lounge Bar.
+            </p>
+            <a
+              href="#contactos"
+              class="inline-flex items-center gap-2 bg-gold text-forestdeep font-body text-sm uppercase tracking-wide font-medium px-6 py-3 rounded-full hover:bg-white transition-colors"
+            >
+              Reservar Agora
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8"
+        >
+          <p class="font-body text-xs text-creamlight/50">
+            © 2026 Ossoma House. Todos os direitos reservados.
+          </p>
+          <p class="font-body text-xs text-creamlight/40">
+            Site por
+            <a
+              href="https://github.com/manueljaime007"
+              target="_blank"
+              rel="author"
+              class="hover:text-gold transition-colors"
+              >Manuel Jaime &amp; BDO</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============ MODAL (mobile detail) ============ -->
+    <div id="detailModal" class="fixed inset-0 z-[60] hidden opacity-0">
+      <div
+        class="absolute inset-0 bg-forestdeep/70 backdrop-blur-sm"
+        id="modalBackdrop"
+      ></div>
+      <div
+        class="modal-panel absolute bottom-0 left-0 w-full sm:max-w-lg sm:left-1/2 sm:-translate-x-1/2 sm:bottom-10 sm:top-10 bg-creamlight rounded-t-3xl sm:rounded-3xl overflow-hidden translate-y-full sm:translate-y-0 sm:opacity-0 max-h-[85vh] sm:max-h-none flex flex-col"
+      >
+        <button
+          id="modalClose"
+          class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-forest text-lg"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div id="modalBody" class="overflow-y-auto scroll-thin"></div>
+      </div>
+    </div>
+
+    <script>
+      /* ============ DATA ============ */
+      const rooms = [
+        {
+          id: "simples",
+          title: "Diária Simples",
+          price: "Sob consulta",
+          img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80",
+          desc: "O quarto ideal para uma estadia individual ou uma noite tranquila. Cama de casal, acabamentos em madeira clara e todo o essencial para descansar bem.",
+          amenities: [
+            "Cama de casal",
+            "Casa de banho privativa",
+            "Ar condicionado",
+            "Acesso à piscina privativa",
+          ],
+        },
+        {
+          id: "dupla",
+          title: "Diária Dupla",
+          price: "Sob consulta",
+          img: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1000&q=80",
+          desc: "Mais espaço para dois. Um quarto amplo com varanda, pensado para casais ou amigos que viajam juntos e querem mais conforto.",
+          amenities: [
+            "Cama king-size",
+            "Varanda privativa",
+            "Ar condicionado",
+            "Acesso à piscina privativa",
+          ],
+        },
+        {
+          id: "suite",
+          title: "Suíte",
+          price: "Sob consulta",
+          img: "https://images.unsplash.com/photo-1611892441382-1a5c8e4a2b6b?w=1000&q=80",
+          desc: "A nossa categoria superior. Sala de estar separada, banheira e a melhor vista da propriedade, para quem procura a experiência completa da Ossoma House.",
+          amenities: [
+            "Sala de estar separada",
+            "Banheira",
+            "Vista privilegiada",
+            "Acesso prioritário à piscina",
+          ],
+        },
+      ];
+
+      const menuDias = [
+        {
+          id: "quinta",
+          dia: "Quinta-feira",
+          prato: "Peito de frango recheado com arroz e salada mediterrânica",
+          precoPrato: "3.400 Kz",
+          sobremesa: "Mousse de banana e bolacha Maria",
+          precoSobremesa: "1.600 Kz",
+          img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80",
+        },
+        {
+          id: "sexta",
+          dia: "Sexta-feira",
+          prato:
+            "Filete de garoupa grelhado com puré de batata-doce e legumes salteados",
+          precoPrato: "3.800 Kz",
+          sobremesa: "Pudim de leite condensado",
+          precoSobremesa: "1.500 Kz",
+          img: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1000&q=80",
+        },
+        {
+          id: "sabado",
+          dia: "Sábado",
+          prato:
+            "Costeleta de porco na brasa com arroz de cabidela e feijão catarino",
+          precoPrato: "4.200 Kz",
+          sobremesa: "Doce de ginguba",
+          precoSobremesa: "1.600 Kz",
+          img: "https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1000&q=80",
+        },
+        {
+          id: "domingo",
+          dia: "Domingo",
+          prato: "Muamba de galinha tradicional com funge e quiabo",
+          precoPrato: "3.900 Kz",
+          sobremesa: "Salada de fruta da época",
+          precoSobremesa: "1.400 Kz",
+          img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=80",
+        },
+      ];
+
+      /* ============ GALERIA (bento grid animado) ============ */
+      const galleryColumns = [
+        {
+          direction: "up",
+          duration: 30,
+          images: [
+            {
+              src: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=700&q=80",
+              h: 260,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=700&q=80",
+              h: 200,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=700&q=80",
+              h: 230,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=700&q=80",
+              h: 190,
+            },
+          ],
+        },
+        {
+          direction: "down",
+          duration: 38,
+          images: [
+            {
+              src: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=80",
+              h: 220,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80",
+              h: 250,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80",
+              h: 190,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=700&q=80",
+              h: 240,
+            },
+          ],
+        },
+        {
+          direction: "up",
+          duration: 24,
+          images: [
+            {
+              src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=700&q=80",
+              h: 210,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=700&q=80",
+              h: 250,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=80",
+              h: 200,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=700&q=80",
+              h: 230,
+            },
+          ],
+        },
+        {
+          direction: "down",
+          duration: 34,
+          images: [
+            {
+              src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80",
+              h: 240,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80",
+              h: 200,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=700&q=80",
+              h: 230,
+            },
+            {
+              src: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=700&q=80",
+              h: 210,
+            },
+          ],
+        },
+      ];
+
+      const bentoGallery = document.getElementById("bentoGallery");
+
+      galleryColumns.forEach((col, ci) => {
+        const wrap = document.createElement("div");
+        wrap.className =
+          "marquee-col rounded-2xl" + (ci >= 2 ? " hidden lg:block" : "");
+
+        const track = document.createElement("div");
+        track.className =
+          "marquee-track" + (col.direction === "down" ? " reverse" : "");
+        track.style.setProperty("--duration", col.duration + "s");
+
+        /* duplica a lista para o loop ficar contínuo (translateY -50%) */
+        const doubled = [...col.images, ...col.images];
+        doubled.forEach((img) => {
+          const el = document.createElement("img");
+          el.src = img.src;
+          el.alt = "Ossoma House";
+          el.loading = "lazy";
+          el.className = "w-full object-cover rounded-2xl";
+          el.style.height = img.h + "px";
+          track.appendChild(el);
+        });
+
+        wrap.appendChild(track);
+        bentoGallery.appendChild(wrap);
+      });
+
+      /* ============ HEADER SCROLL STATE ============ */
+      const header = document.getElementById("siteHeader");
+      const headerLogo = document.getElementById("headerLogo");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      function updateHeader() {
+        if (window.scrollY > 40) {
+          header.classList.add("bg-white/95", "backdrop-blur", "shadow-sm");
+          header.classList.remove("bg-transparent");
+          navLinks.forEach((l) => l.classList.add("text-ink"));
+          navLinks.forEach((l) => l.classList.remove("text-white"));
+        } else {
+          header.classList.remove("bg-white/95", "backdrop-blur", "shadow-sm");
+          header.classList.add("bg-transparent");
+          navLinks.forEach((l) => l.classList.remove("text-ink"));
+          navLinks.forEach((l) => l.classList.add("text-white"));
+        }
+      }
+      window.addEventListener("scroll", updateHeader);
+      updateHeader();
+
+      /* ============ MOBILE MENU ============ */
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuIcon = document.getElementById("menuIcon");
+      let menuOpen = false;
+
+      function toggleMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+          mobileMenu.classList.remove("opacity-0");
+          menuIcon.classList.remove("bi-list");
+          menuIcon.classList.add("bi-x-lg");
+        } else {
+          mobileMenu.style.maxHeight = "0px";
+          mobileMenu.classList.add("opacity-0");
+          menuIcon.classList.add("bi-list");
+          menuIcon.classList.remove("bi-x-lg");
+        }
+      }
+      menuBtn.addEventListener("click", toggleMenu);
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (menuOpen) toggleMenu();
+        });
+      });
+
+      /* ============ HERO SLIDER ============ */
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+      let currentSlide = 0;
+
+      function goToSlide(index) {
+        slides[currentSlide].classList.remove("active");
+        dots[currentSlide].classList.remove("bg-gold", "w-6");
+        dots[currentSlide].classList.add("bg-white/40");
+
+        currentSlide = index;
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("bg-gold", "w-6");
+        dots[currentSlide].classList.remove("bg-white/40");
+      }
+      goToSlide(0);
+      dots.forEach((dot) =>
+        dot.addEventListener("click", () =>
+          goToSlide(parseInt(dot.dataset.index)),
+        ),
+      );
+      setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000);
+
+      /* ============ LISTA + DETALHE + MODAL (genérico) ============ */
+      const modal = document.getElementById("detailModal");
+      const modalPanel = modal.querySelector(".modal-panel");
+      const modalBody = document.getElementById("modalBody");
+      const modalBackdrop = document.getElementById("modalBackdrop");
+      const modalClose = document.getElementById("modalClose");
+
+      function openModal(html) {
+        modalBody.innerHTML = html;
+        modal.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          modal.classList.remove("opacity-0");
+          modalPanel.classList.remove("translate-y-full", "sm:opacity-0");
+        });
+        document.body.classList.add("overflow-hidden");
+      }
+      function closeModal() {
+        modal.classList.add("opacity-0");
+        modalPanel.classList.add("translate-y-full", "sm:opacity-0");
+        document.body.classList.remove("overflow-hidden");
+        setTimeout(() => modal.classList.add("hidden"), 400);
+      }
+      modalBackdrop.addEventListener("click", closeModal);
+      modalClose.addEventListener("click", closeModal);
+
+      function isDesktop() {
+        return window.innerWidth >= 1024;
+      }
+
+      /* --- Quartos --- */
+      const roomsList = document.getElementById("roomsList");
+      const roomsDetail = document.getElementById("roomsDetail");
+
+      function renderRoomDetail(room) {
+        return `
+    <div class="arch-frame">
+      <img src="${room.img}" alt="${room.title}" class="w-full h-[320px] object-cover">
+    </div>
+    <div class="pt-8">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <h3 class="font-display text-forest text-2xl">${room.title}</h3>
+        <span class="font-body text-gold bg-forest px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">${room.price}</span>
+      </div>
+      <p class="font-body text-ink/70 leading-relaxed mb-6">${room.desc}</p>
+      <ul class="grid grid-cols-2 gap-3">
+        ${room.amenities.map((a) => `<li class="flex items-center gap-2 font-body text-sm text-ink/70"><i class="bi bi-check-circle-fill text-forest text-xs"></i>${a}</li>`).join("")}
+      </ul>
+    </div>`;
+      }
+
+      function renderModalContent(title, price, img, desc, items, itemLabel) {
+        return `
+    <img src="${img}" alt="${title}" class="w-full h-56 object-cover">
+    <div class="p-7 pb-10">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <h3 class="font-display text-forest text-2xl">${title}</h3>
+        <span class="font-body text-gold bg-forest px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">${price}</span>
+      </div>
+      <p class="font-body text-ink/70 leading-relaxed mb-6">${desc}</p>
+      <ul class="grid grid-cols-1 gap-3">
+        ${items.map((a) => `<li class="flex items-center gap-2 font-body text-sm text-ink/70"><i class="bi bi-check-circle-fill text-forest text-xs"></i>${a}</li>`).join("")}
+      </ul>
+    </div>`;
+      }
+
+      function selectRoom(room, userInitiated) {
+        document
+          .querySelectorAll("#roomsList .item-row")
+          .forEach((el) => el.classList.remove("is-active"));
+        document.getElementById("row-" + room.id).classList.add("is-active");
+
+        if (isDesktop()) {
+          roomsDetail.innerHTML = renderRoomDetail(room);
+        } else if (userInitiated) {
+          openModal(
+            renderModalContent(
+              room.title,
+              room.price,
+              room.img,
+              room.desc,
+              room.amenities,
+            ),
+          );
+        }
+      }
+
+      rooms.forEach((room, i) => {
+        const row = document.createElement("button");
+        row.id = "row-" + room.id;
+        row.className =
+          "item-row text-left border border-cream rounded-2xl px-6 py-5 flex items-center justify-between gap-4 transition-colors hover:border-gold";
+        row.innerHTML = `
+    <div>
+      <p class="item-row-title font-display text-forest text-lg">${room.title}</p>
+      <p class="font-body text-xs text-golddeep mt-1 uppercase tracking-wide">${room.price}</p>
+    </div>
+    <i class="bi bi-arrow-right text-forest"></i>`;
+        row.addEventListener("click", () => selectRoom(room, true));
+        roomsList.appendChild(row);
+      });
+      /* Selecção inicial só destaca o item e preenche o painel desktop — nunca abre o modal sozinho */
+      selectRoom(rooms[0], false);
+
+      /* --- Menu do dia --- */
+      const menuListEl = document.getElementById("menuList");
+
+      function selectMenuDia(dia) {
+        document
+          .querySelectorAll("#menuList .item-row")
+          .forEach((el) => el.classList.remove("is-active"));
+        document.getElementById("menu-" + dia.id).classList.add("is-active");
+
+        const items = [
+          `Prato: ${dia.prato} — <span class="text-golddeep font-medium">${dia.precoPrato}</span>`,
+          `Sobremesa: ${dia.sobremesa} — <span class="text-golddeep font-medium">${dia.precoSobremesa}</span>`,
+          `Bebida grátis incluída: um fino ou água / refrigerante`,
+        ];
+
+        openModal(
+          renderModalContent(
+            dia.dia,
+            "Menu do Dia",
+            dia.img,
+            "O prato do dia é preparado na hora e servido com a nossa hospitalidade habitual.",
+            items,
+          ),
+        );
+      }
+
+      menuDias.forEach((dia) => {
+        const row = document.createElement("button");
+        row.id = "menu-" + dia.id;
+        row.className =
+          "item-row text-left border border-cream rounded-2xl px-6 py-5 flex items-center justify-between gap-4 transition-colors hover:border-gold bg-white";
+        row.innerHTML = `
+    <div>
+      <p class="item-row-title font-display text-forest text-lg">${dia.dia}</p>
+      <p class="font-body text-xs text-ink/50 mt-1">${dia.prato}</p>
+    </div>
+    <span class="font-body text-golddeep text-sm font-medium whitespace-nowrap">${dia.precoPrato}</span>`;
+        row.addEventListener("click", () => selectMenuDia(dia));
+        menuListEl.appendChild(row);
+      });
+
+      /* Re-render room detail on resize (mobile <-> desktop) */
+      window.addEventListener("resize", () => {
+        const activeId = document
+          .querySelector("#roomsList .item-row.is-active")
+          ?.id?.replace("row-", "");
+        const activeRoom = rooms.find((r) => r.id === activeId) || rooms[0];
+        if (isDesktop()) roomsDetail.innerHTML = renderRoomDetail(activeRoom);
+      });
+
+      /* ============ FORMULÁRIO -> WHATSAPP ============ */
+      const reservaForm = document.getElementById("reservaForm");
+      reservaForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value.trim();
+        const tipo = document.getElementById("tipoReserva").value;
+        const dataHora = document.getElementById("dataHora").value.trim();
+        const pessoas = document.getElementById("pessoas").value.trim();
+        const mensagem = document.getElementById("mensagem").value.trim();
+
+        let linhas = [`Olá, Ossoma House! Gostaria de fazer uma reserva.`, ``];
+        linhas.push(`Nome: ${nome}`);
+        linhas.push(`Tipo de Reserva: ${tipo}`);
+        if (dataHora) linhas.push(`Data/Hora: ${dataHora}`);
+        if (pessoas) linhas.push(`Pessoas/Quartos: ${pessoas}`);
+        if (mensagem) linhas.push(`Mensagem: ${mensagem}`);
+
+        const texto = encodeURIComponent(linhas.join("\n"));
+        window.open(`https://wa.me/244944195613?text=${texto}`, "_blank");
+      });
+
+      /* ============ REVEAL ON SCROLL ============ */
+      const revealEls = document.querySelectorAll(".reveal:not(.in-view)");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      revealEls.forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
